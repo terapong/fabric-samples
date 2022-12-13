@@ -1,0 +1,14 @@
+<h4 class="head-4">
+    All Car info
+</h4>
+<div style="width: 400px; margin: 0px; font-size: 20px;">
+    <div style="width: 400px;">
+        <%for(var i = 0; i < label.length; i++) {%>
+            <%if(i > 0 && label[i] == "Key") {%>
+                <hr style="clear: both; background: #000;">
+            <%}%>
+            <div style="clear: both; float: left; font-weight: bold; color: cornsilk; width: 100px;"><%=label[i]%></div>
+            <div style="float: left; width: 200px;"><%=values[i]%></div>
+        <%}%>
+    </div>
+</div>
