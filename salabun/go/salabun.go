@@ -20,30 +20,21 @@ type Asset struct {
   Size           int    `json:"size"`
   Owner          string `json:"owner"`
   AppraisedValue int    `json:"appraisedValue"`
+  From           string `json:"from"`      //from
+	Too            string `json:"too"`       //to
+  BookType       int    `json:"bookType"`
 }
-
-/*
-type OrgAsset struct {
-	Id        string `json:"id"`        //the assetId
-	AssetType string `json:"assetType"` //type of device
-	Status    string `json:"status"`    //status of asset
-	Location  string `json:"location"`  //device location
-	SerialId  string `json:"serialId"`  //SerialId
-	Comment   string `json:"comment"`   //comment
-	From      string `json:"from"`      //from
-	To        string `json:"to"`        //to
-}
-*/
 
 // InitLedger adds a base set of assets to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
+
   assets := []Asset{
-    {ID: "asset1", Color: "blue", Size: 5, Owner: "Tomoko", AppraisedValue: 300},
-    {ID: "asset2", Color: "red", Size: 5, Owner: "Brad", AppraisedValue: 400},
-    {ID: "asset3", Color: "green", Size: 10, Owner: "Jin Soo", AppraisedValue: 500},
-    {ID: "asset4", Color: "yellow", Size: 10, Owner: "Max", AppraisedValue: 600},
-    {ID: "asset5", Color: "black", Size: 15, Owner: "Adriana", AppraisedValue: 700},
-    {ID: "asset6", Color: "white", Size: 15, Owner: "Michel", AppraisedValue: 800},
+    {ID: "asset1", Color: "blue", Size: 5, Owner: "Tomoko", AppraisedValue: 300, From: "Terapong", Too: "potisuwan", BookType: 1} , 
+    {ID: "asset2", Color: "red", Size: 5, Owner: "Brad", AppraisedValue: 400, From: "Terapong", Too: "potisuwan", BookType: 2},
+    {ID: "asset3", Color: "green", Size: 10, Owner: "Jin Soo", AppraisedValue: 500, From: "Terapong", Too: "potisuwan", BookType: 3},
+    {ID: "asset4", Color: "yellow", Size: 10, Owner: "Max", AppraisedValue: 600, From: "Terapong", Too: "potisuwan", BookType: 2},
+    {ID: "asset5", Color: "black", Size: 15, Owner: "Adriana", AppraisedValue: 700, From: "Terapong", Too: "potisuwan", BookType: 1},
+    {ID: "asset6", Color: "white", Size: 15, Owner: "Michel", AppraisedValue: 800, From: "Terapong", Too: "potisuwan", BookType: 3},
   }
 
   for _, asset := range assets {
@@ -62,7 +53,8 @@ func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) 
 }
 
 // CreateAsset issues a new asset to the world state with given details.
-func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface, id string, color string, size int, owner string, appraisedValue int) error {
+  func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface, id string, color string, 
+    size int, owner string, appraisedValue int, from string, too string, bookType int) error {
   exists, err := s.AssetExists(ctx, id)
   if err != nil {
     return err
@@ -77,6 +69,10 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
     Size:           size,
     Owner:          owner,
     AppraisedValue: appraisedValue,
+    From: from,
+    Too: too,
+    BookType: bookType,
+    
   }
   assetJSON, err := json.Marshal(asset)
   if err != nil {
@@ -106,7 +102,8 @@ func (s *SmartContract) ReadAsset(ctx contractapi.TransactionContextInterface, i
 }
 
 // UpdateAsset updates an existing asset in the world state with provided parameters.
-func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface, id string, color string, size int, owner string, appraisedValue int) error {
+  func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface, id string, color string, 
+    size int, owner string, appraisedValue int, from string, too string, bookType int) error {
   exists, err := s.AssetExists(ctx, id)
   if err != nil {
     return err
@@ -122,6 +119,9 @@ func (s *SmartContract) UpdateAsset(ctx contractapi.TransactionContextInterface,
     Size:           size,
     Owner:          owner,
     AppraisedValue: appraisedValue,
+    From: from,
+    Too: too,
+    BookType: bookType,
   }
   assetJSON, err := json.Marshal(asset)
   if err != nil {

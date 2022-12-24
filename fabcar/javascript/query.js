@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
     extended:true
-}))
+})) 
 const routes = require('./routes');
 app.use('/', routes);
 app.get('/', function(req, res) {
