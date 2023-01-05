@@ -67,27 +67,27 @@ func main() {
 	}
 	fmt.Println(string(result))
 
-	result, err = contract.SubmitTransaction("createCar", "CAR10", "VW", "Polo", "Grey", "Mary")
+	result, err = contract.SubmitTransaction("createCar", "CAR12", "VWrrrr", "Polorrr", "Greyrrr", "Maryrrrr")
 	if err != nil {
 		fmt.Printf("Failed to submit transaction: %s\n", err)
 		os.Exit(1)
 	}
 	fmt.Println(string(result))
 
-	result, err = contract.EvaluateTransaction("queryCar", "CAR10")
+	result, err = contract.EvaluateTransaction("queryCar", "CAR12")
 	if err != nil {
 		fmt.Printf("Failed to evaluate transaction: %s\n", err)
 		os.Exit(1)
 	}
 	fmt.Println(string(result))
 
-	_, err = contract.SubmitTransaction("changeCarOwner", "CAR10", "Archie")
+	_, err = contract.SubmitTransaction("changeCarOwner", "CAR12", "Archiesssss")
 	if err != nil {
 		fmt.Printf("Failed to submit transaction: %s\n", err)
 		os.Exit(1)
 	}
 
-	result, err = contract.EvaluateTransaction("queryCar", "CAR10")
+	result, err = contract.EvaluateTransaction("queryCar", "CAR12")
 	if err != nil {
 		fmt.Printf("Failed to evaluate transaction: %s\n", err)
 		os.Exit(1)
