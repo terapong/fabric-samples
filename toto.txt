@@ -1,3 +1,5 @@
+ทำสารบรรญ ในกล่อง Raspery PI ส่งชายในโรงเรียน ดีไหม
+
 node enrollAdmin.js
 node registerUser.js
 
@@ -22,3 +24,14 @@ atcc https://hyperledger-fabric.readthedocs.io/en/latest/chaincode4ade.html
 แฟ้มเก็บ          ptsw_book_fame          --text
 อัปโหลดไฟล์       ptsw_book_file          --dowload file  ///หลายไฟล์
 บันทึกข้อมูล
+
+///google
+http://localhost:5984/_utils
+user : admin
+pass : adminpw
+
+ตารางรหัส ต่างๆ เอาไว้ข้างนอกน่ะ เช่น mysql
+
+///fabcar
+node query.js
+http://localhost:3000
