@@ -41,14 +41,14 @@ public class ClientApp {
 			result = contract.evaluateTransaction("queryAllCars");
 			System.out.println(new String(result));
 
-			contract.submitTransaction("createCar", "CAR10", "VW", "Polo", "Grey", "Mary");
+			contract.submitTransaction("createCar", "CAR11", "VW111", "Polo", "Grey", "Mary");
 
-			result = contract.evaluateTransaction("queryCar", "CAR10");
+			result = contract.evaluateTransaction("queryCar", "CAR11");
 			System.out.println(new String(result));
 
-			contract.submitTransaction("changeCarOwner", "CAR10", "Archie");
+			contract.submitTransaction("changeCarOwner", "CAR11", "Archie");
 
-			result = contract.evaluateTransaction("queryCar", "CAR10");
+			result = contract.evaluateTransaction("queryCar", "CAR11");
 			System.out.println(new String(result));
 		}
 	}
