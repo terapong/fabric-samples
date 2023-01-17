@@ -1,0 +1,41 @@
+ทำสารบรรญ ในกล่อง Raspery PI ส่งชายในโรงเรียน ดีไหม
+
+////กระเป๋าเก็บเหรียญคริปโต (Crypto Wallet)
+// 1. Public key
+// 2. Private key
+
+node enrollAdmin.js
+node registerUser.js
+
+ต้องเขียนโปรแกรม เพื่ม user อีก
+
+hscasset  https://www.youtube.com/watch?v=w-d_Uio0jWA
+atcc https://hyperledger-fabric.readthedocs.io/en/latest/chaincode4ade.html
+
+
+////สารบรรณ ลงทะเบียนหนังสือรับ
+ประเภทหนังสือ     ptsw_book_type           --ภายนอง ถายใน
+เลขทะเบียนรับ     ptsw_book_receive_number --text
+รับวันที่          ptsw_book_receive_date    --cal         
+ชั้นความลับ       ptsw_book_secret_class   --ปกติ           ///ด่วน ด่วนมาก ด่วนที่สุด 
+เลขที่หนังสือ       ptsw_book_number         --text   
+ลงวันที่           ptsw_book_go_date       --cal
+จาก             ptsw_book_from          --text
+ถึง              ptsw_book_to            --text
+เรื่อง            ptsw_book_subject       --text
+การปฎิบัติ         ptsw_book_mission       --text          ///ต้องเป็น ให้ใครไปทำ หน่วยงานที่ทำ ต้องทำอีก
+หมาบเหตุ         ptsw_book_note          --text
+แฟ้มเก็บ          ptsw_book_fame          --text
+อัปโหลดไฟล์       ptsw_book_file          --dowload file  ///หลายไฟล์
+บันทึกข้อมูล
+
+///google
+http://localhost:5984/_utils
+user : admin
+pass : adminpw
+
+ตารางรหัส ต่างๆ เอาไว้ข้างนอกน่ะ เช่น mysql
+
+///fabcar
+node query.js
+http://localhost:3000
